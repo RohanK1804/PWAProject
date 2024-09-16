@@ -1,0 +1,12 @@
+---
+import { getProducts } from '../api/products.ts';
+
+let products = await getProducts();
+---
+
+<div>
+  <h1>Product Catalog</h1>
+  {products.map(product => (
+    <ProductCard product={product} />
+  ))}
+</div>

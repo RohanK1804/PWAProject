@@ -1,0 +1,12 @@
+---
+import { getCart } from '../api/cart.ts';
+
+let cartItems = await getCart();
+---
+
+<div>
+  <h1>Your Cart</h1>
+  {cartItems.map(item => (
+    <div>{item.title} - ${item.price}</div>
+  ))}
+</div>

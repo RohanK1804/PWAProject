@@ -1,0 +1,23 @@
+---
+import { loginUser } from '../api/auth.ts';
+let form = {
+  email: '',
+  password: ''
+};
+
+async function handleLogin(event) {
+  event.preventDefault();
+  const response = await loginUser(form);
+  if (response.success) {
+    // Handle success (e.g., redirect)
+  } else {
+    // Handle error
+  }
+}
+---
+
+<form on:submit={handleLogin}>
+  <input type="email" placeholder="Email" bind:value={form.email} required />
+  <input type="password" placeholder="Password" bind:value={form.password} required />
+  <button type="submit">Login</button>
+</form>

@@ -1,0 +1,25 @@
+---
+import { registerUser } from '../api/auth.ts';
+let form = {
+  username: '',
+  email: '',
+  password: ''
+};
+
+async function handleRegister(event) {
+  event.preventDefault();
+  const response = await registerUser(form);
+  if (response.success) {
+    // Handle success (e.g., redirect to login)
+  } else {
+    // Handle error
+  }
+}
+---
+
+<form on:submit={handleRegister}>
+  <input type="text" placeholder="Username" bind:value={form.username} required />
+  <input type="email" placeholder="Email" bind:value={form.email} required />
+  <input type="password" placeholder="Password" bind:value={form.password} required />
+  <button type="submit">Register</button>
+</form>
